@@ -5,14 +5,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:instagram]
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.email = "#{auth.uid}@instagram" unless user.email
-      user.password = Devise.friendly_token[0,20]
-      user.access_token = auth.credentials.token
+      
+  def self.from_omniauth(auth)  
+    user = where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
+      u.provider = auth.provider
+      u.uid = auth.uid
+      u.email = auth.info.email
+      u.email = "#{auth.uid}@instagram.com" unless u.email
+      u.password = Devise.friendly_token[0,20]
     end
+    
+    byebug
+    user.update!(access_token: auth.credentials.token )
+    user
   end
+  
 end
