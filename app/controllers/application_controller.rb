@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   
   private
   def client
-    Instagram.client(:access_token => current_user.access_token)
+    Instagram.client(access_token: current_user.access_token)
   end
 end
