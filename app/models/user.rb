@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:instagram]
 
-      
+  has_many :likes
+  
   def self.from_omniauth(auth)  
     user = where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
       u.provider = auth.provider
