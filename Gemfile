@@ -49,7 +49,12 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rbenv', '~> 2.0.3'
   gem 'capistrano-bundler', '~> 1.1.4'
+  gem 'capistrano3-unicorn'
   gem 'airbrussh', require: false
+end
+
+group :production do
+  gem 'unicorn'
 end
 
 
