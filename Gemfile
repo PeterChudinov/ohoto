@@ -48,5 +48,6 @@ end
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-instagram'
+gem 'activerecord-session_store'
 
 gem 'figaro'

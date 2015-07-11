@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:instagram]
 
   def self.from_omniauth(auth)
-    user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.info.email
       user.email = "#{auth.uid}@instagram" unless user.email
       user.password = Devise.friendly_token[0,20]
+      user.access_token = auth.credentials.token
     end
-    
   end
 end
