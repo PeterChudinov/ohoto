@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rm -f dist.tar && make -s && tar cf dist.tar index.html build vendor partials &&scp dist.tar ohoto:/tmp && ssh ohoto 'cd /var/www/oho.to && tar xf /tmp/dist.tar' && echo 'done!'
