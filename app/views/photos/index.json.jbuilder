@@ -1,2 +1,5 @@
-json.content format_content(@recent_media.content)
-json.(@recent_media, :created_at, :updated_at)
+json.array!(@recent_media) do |media|
+  json.id = media.id
+  json.url = media.images.low_resolution.url
+end
+

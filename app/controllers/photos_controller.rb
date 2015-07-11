@@ -1,10 +1,7 @@
 class PhotosController < ApplicationController
-  def all_media
-    client = Instagram.client(:access_token => current_user.access_token)
-  end
-  
   def index
-    @recent_media = Instagram.user_liked_media()
+    @recent_media = client.user_liked_media(access_token: current_user.access_token)
+    
     image_ig_id = @recent_media[2].id
     image_low_res_url = @recent_media[2].images.low_resolution.url
     image_standard_res_url = @recent_media[2].images.standard_resolution.url
