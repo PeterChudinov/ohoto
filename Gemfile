@@ -70,3 +70,4 @@ gem 'figaro'
 gem 'whenever', require: false
 
 gem 'sidekiq'
+gem 'sinatra', require: nil
