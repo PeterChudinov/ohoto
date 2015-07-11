@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'shops/index'
+
   get 'user/index'
 
   get 'users/index'
