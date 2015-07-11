@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 
-var sources = ['./**/*.js'];
+var sources = ['./**/*.js', './**/*.scss'];
 
 gulp.task('make', function () {
   return gulp.src('')

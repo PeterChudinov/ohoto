@@ -18,14 +18,39 @@
     margin-bottom: 10px;
   }
 
+  .mdl-card__title.mdl-card--expand {
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity ease 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .item-card-expand__likes {
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .item-card-expand__shopname {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+
   > .mdl-card__actions {
     height: 52px;
     padding: 19px;
     font-weight: 600;
     background: rgba(0, 0, 0, 0.2);
   }
-}
 
-.item-card-image__shopname {
+  .item-card-image__shopname {
     color: #fff;
+  }
 }
