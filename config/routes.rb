@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'callbacks/instagram'
 
   get 'home/index'
-
+  get 'photos/index'
+  
   root to: "home#index"
   
   devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
