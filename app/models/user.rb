@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
       u.password = Devise.friendly_token[0,20]
     end
     
-    byebug
     user.update!(access_token: auth.credentials.token )
     user
   end
