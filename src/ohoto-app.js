@@ -9,8 +9,12 @@ ohotoApp.config(
     function ($routeProvider) {
       $routeProvider
         .when('/items', {
-          templateUrl: 'partials/items.html',
-          controller: 'ItemsCtrl'
+          templateUrl: 'partials/item-list.html',
+          controller: 'ItemListCtrl'
+        })
+        .when('/item/:itemId', {
+          templateUrl: 'partials/item.html',
+          controller: 'ItemDetailCtrl'
         })
         .when('/profile', {
           templateUrl: 'partials/profile.html',

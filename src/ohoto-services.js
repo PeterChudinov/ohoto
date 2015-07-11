@@ -6,11 +6,11 @@ var ohotoServices = angular.module('ohotoServices', ['ngResource']);
 
 ohotoServices.factory('Item', ['$resource', ($resource) => {
 
-  return $resource(prefix + '/items/:id', {}, {
+  return $resource(prefix + '/items/:itemId', {}, {
     query: {
       method: 'GET',
       params: {
-        id: ''
+        itemId: ''
       },
       isArray: true
     }

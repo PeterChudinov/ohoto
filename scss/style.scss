@@ -19,9 +19,9 @@
   }
 
   .mdl-card__title.mdl-card--expand {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transition: opacity ease 0.2s;
+    transition: opacity ease 0.18s;
 
     &:hover {
       opacity: 1;
@@ -47,10 +47,16 @@
     height: 52px;
     padding: 19px;
     font-weight: 600;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.23);
   }
 
   .item-card-image__shopname {
     color: #fff;
   }
+}
+
+.item-page-back-button {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
 }

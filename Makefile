@@ -26,7 +26,7 @@ $(VENDOR_DIR)angular-resource.js: $(NODE_DIR)angular-resource/angular-resource.j
 $(VENDOR_DIR)material.js: $(NODE_DIR)material-design-lite/material.js
 	install -m644 $< $@
 
-$(VENDOR_DIR)material.css: $(NODE_DIR)material-design-lite/material.css
+$(VENDOR_DIR)material.css: 3rd-party/material.pink-blue.min.css
 	install -m644 $< $@
 
 $(BUILD_DIR)main-compiled.js: $(SOURCES)

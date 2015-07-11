@@ -1,7 +1,11 @@
 var ohotoControllers = angular.module('ohotoControllers', []);
 
-ohotoControllers.controller('ItemsCtrl', ['$scope', 'Item', ($scope, Item) => {
+ohotoControllers.controller('ItemListCtrl', ['$scope', 'Item', ($scope, Item) => {
   $scope.items = Item.query();
+}]);
+
+ohotoControllers.controller('ItemDetailCtrl', ['$scope', '$routeParams', 'Item', ($scope, $routeParams, Item) => {
+  $scope.item = Item.get({ itemId: $routeParams.itemId });
 }]);
 
 ohotoControllers.controller('ProfileCtrl', ['$scope', ($scope) => {
