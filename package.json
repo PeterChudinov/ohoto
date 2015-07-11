@@ -1,0 +1,16 @@
+{
+  "name": "ohoto-front",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node_modules/.bin/gulp"
+  },
+  "devDependencies": {
+    "traceur": "0.0.90",
+    "gulp": "3.9.0",
+    "gulp-shell": "0.4.2",
+    "angular": "1.4.2",
+    "angular-route": "1.4.2",
+    "angular-resource": "1.4.2"
+  }
+}
