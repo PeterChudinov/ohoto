@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get 'callbacks/instagram'
+  
+  get 'auth-status' => 'home#auth_status', defaults: { format: 'json' }
 
   get 'home/index'
   get 'photos/index'

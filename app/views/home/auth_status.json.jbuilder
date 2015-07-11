@@ -1,0 +1,1 @@
+json.auth user_signed_in?
