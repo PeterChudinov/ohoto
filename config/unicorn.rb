@@ -1,4 +1,4 @@
-path = "/var/www/#{application}"
+path = "/var/www/ohoto"
 environment = ENV['RACK_ENV'] || ENV['RAILS_ENV'] || 'production'
 workers = (ENV['UNICORN_WORKERS'] || (environment == 'production' ? 2 : 1 )).to_i
 

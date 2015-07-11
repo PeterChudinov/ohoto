@@ -40,11 +40,13 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+set :unicorn_config_path, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
+
 namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      invoke 'unicorn:restart'
+      invoke 'unicorn:legacy_restart'
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
