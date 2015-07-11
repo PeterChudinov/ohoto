@@ -1,14 +1,14 @@
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--4-col">
-    <div class="" style="background-image: url({{item.image}}); width: 100%; height: 600px; background-repeat: no-repeat; background-size: contain;">
-    </div>
+<div class="mdl-grid" style="display:block">
+  <div style="float:left; margin-right: 10px">
+    <div class="mdl-card mdl-shadow--2dp" style="background: url({{item.image}}) center / cover; width: 340px; height: 340px"></div>
   </div>
-  <div class="mdl-cell mdl-cell--8-col">
-    <p>Владелец: {{item.seller_name}}</p>
-    <p>Лайков: {{item.like_count}}</p>
-    <p>Комментов: {{item.comments_count}}</p>
-    <p>Комментарий: {{item.title}}</p>
+  <div>
+    <p>Владелец: {{item.seller_name}}<br>
+    Лайков: {{item.like_count}}<br>
+    Комментов: {{item.comments_count}}<br>
+    Комментарий: {{item.title}}</p>
   </div>
+  <div style="clear:left; height: 80px"></div>
   <a href="#/items">
     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored item-page-back-button">
       <i class="material-icons">arrow_back</i>
