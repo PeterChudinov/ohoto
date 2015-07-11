@@ -1,7 +1,7 @@
 namespace :likes do
   task get: :environment do
-    User.each do |user|
-      LikesJob.perform_later(user_id)
+    User.all.each do |user|
+      LikesJob.perform_later(user.id)
     end
   end
 end

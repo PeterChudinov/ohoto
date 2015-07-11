@@ -50,6 +50,7 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.0.3'
   gem 'capistrano-bundler', '~> 1.1.4'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-sidekiq'
   gem 'airbrussh', require: false
 end
 
@@ -67,3 +68,5 @@ gem 'instagram'
 gem 'figaro'
 
 gem 'whenever', require: false
+
+gem 'sidekiq'

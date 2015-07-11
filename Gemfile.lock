@@ -62,8 +62,13 @@ GEM
     capistrano-rbenv (2.0.3)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    capistrano-sidekiq (0.5.3)
+      capistrano
+      sidekiq
     capistrano3-unicorn (0.2.1)
       capistrano (~> 3.1, >= 3.1.0)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     chronic (0.10.2)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -74,6 +79,7 @@ GEM
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     columnize (0.9.0)
+    connection_pool (2.2.0)
     debug_inspector (0.0.2)
     devise (3.5.1)
       bcrypt (~> 3.0)
@@ -93,6 +99,7 @@ GEM
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
+    hitimes (1.2.2)
     i18n (0.7.0)
     instagram (1.1.5)
       faraday (>= 0.7, < 0.10)
@@ -171,6 +178,9 @@ GEM
     raindrops (0.13.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    redis (3.2.1)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     sass (3.4.16)
@@ -183,6 +193,12 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sidekiq (3.4.1)
+      celluloid (~> 0.16.0)
+      connection_pool (>= 2.1.1)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
     spring (1.3.6)
     sprockets (3.2.0)
       rack (~> 1.0)
@@ -197,6 +213,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -229,6 +247,7 @@ DEPENDENCIES
   capistrano-bundler (~> 1.1.4)
   capistrano-rails (~> 1.1)
   capistrano-rbenv (~> 2.0.3)
+  capistrano-sidekiq
   capistrano3-unicorn
   coffee-rails (~> 4.1.0)
   devise
@@ -242,9 +261,13 @@ DEPENDENCIES
   rails (= 4.2.3)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sidekiq
   spring
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)
   whenever
+
+BUNDLED WITH
+   1.10.5
