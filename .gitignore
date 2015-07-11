@@ -3,3 +3,4 @@ vendor/*.js
 vendor/*.css
 build/*.js
 build/*.css
+dist.tar

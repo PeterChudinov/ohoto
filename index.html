@@ -15,14 +15,16 @@
           <span class="mdl-layout-title">Oho.to</span>
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="http://api.oho.to/users/auth/instagram">Войти</a>
+            <a class="mdl-navigation__link" data-logged="true" href="http://api.oho.to/users/sign_out" style="display:none">Выйти</a>
+            <a class="mdl-navigation__link" data-logged="false" href="http://api.oho.to/users/auth/instagram" style="display:none">Войти</a>
           </nav>
         </div>
       </header>
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Меню</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="http://api.oho.to/users/auth/instagram">Войти</a>
+          <a class="mdl-navigation__link" data-logged="true" href="http://api.oho.to/users/sign_out" style="display:none">Выйти</a>
+          <a class="mdl-navigation__link" data-logged="false" href="http://api.oho.to/users/auth/instagram" style="display:none">Войти</a>
         </nav>
       </div>
       <main class="mdl-layout__content" ng-view>
