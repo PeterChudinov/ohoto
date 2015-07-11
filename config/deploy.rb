@@ -7,6 +7,8 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 
 set :bundle_jobs, 2
 
+set :conditionally_migrate, true # run migrate only if files changes in db/migrate
+
 set :application, 'ohoto'
 set :repo_url, 'git@github.com:eeremeev/ohoto.git'
 
@@ -41,12 +43,22 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :keep_releases, 5
 
 set :unicorn_config_path, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
+set :unicorn_restart_sleep_time, 10
+set :unicorn_pid, "#{fetch(:deploy_to)}/current/tmp/pids/unicorn.pid"
+
+
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:legacy_restart'
+  end
+end
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
+  after :publishing, :clear do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      invoke 'unicorn:legacy_restart'
+      #invoke 'unicorn:restart'
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
