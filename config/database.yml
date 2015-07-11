@@ -11,7 +11,7 @@ default: &default
 
 development:
   adapter: postgresql
-  database: ohota_development
+  database: ohoto_development
   pool: 5
   timeout: 5000
 
