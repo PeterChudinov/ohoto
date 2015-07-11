@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+    request.env['omniauth.origin'] || after_sign_in_path_for(resource)
   end
   
   private
   def client
-    Instagram.client(:access_token => current_user.access_token)
+    Instagram.client(access_token: current_user.access_token)
   end
 end
