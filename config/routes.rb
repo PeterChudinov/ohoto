@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user/index'
+
   get 'users/index'
 
   get 'callbacks/instagram'

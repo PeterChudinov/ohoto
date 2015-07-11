@@ -1,4 +1,4 @@
-json.array!(@user) do |u|
+json.array!(@users) do |u|
   json.id = u.id
   json.name = u.name
   json.instagram_url = u.instagram_url
