@@ -1,18 +1,23 @@
 var ohotoApp = angular.module('ohotoApp', [
   'ngRoute',
-  'ohotoControllers'
+  'ohotoControllers',
+  'ohotoServices'
 ]);
 
 ohotoApp.config(
   [ '$routeProvider',
     function ($routeProvider) {
       $routeProvider
+        .when('/items', {
+          templateUrl: 'partials/items.html',
+          controller: 'ItemsCtrl'
+        })
         .when('/profile', {
           templateUrl: 'partials/profile.html',
           controller: 'ProfileCtrl'
         })
         .otherwise({
-          redirectTo: '/profile'
+          redirectTo: '/items'
         });
     }
   ]

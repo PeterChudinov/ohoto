@@ -1,0 +1,31 @@
+.items-container {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  .item-wrapper {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+.item-card-image {
+  &.mdl-card {
+    cursor: pointer;
+    width: 256px;
+    height: 256px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  > .mdl-card__actions {
+    height: 52px;
+    padding: 19px;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.item-card-image__shopname {
+    color: #fff;
+}
