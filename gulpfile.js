@@ -5,7 +5,7 @@ var sources = ['./**/*.js', './**/*.scss'];
 
 gulp.task('make', function () {
   return gulp.src('')
-    .pipe(shell('make -s', {ignoreErrors: true}));
+    .pipe(shell('make -s', { ignoreErrors: true }));
 });
 
 gulp.task('watch', function () {
