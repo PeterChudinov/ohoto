@@ -6,7 +6,7 @@ SRC_DIR=src/
 BUILD_DIR=build/
 SOURCES:=$(wildcard $(SRC_DIR)*.js)
 
-all: $(VENDOR_DIR)traceur-runtime.js $(VENDOR_DIR)angular.js $(VENDOR_DIR)angular-route.js $(VENDOR_DIR)angular-resource.js $(BUILD_DIR)main-compiled.js
+all: $(VENDOR_DIR)traceur-runtime.js $(VENDOR_DIR)angular.js $(VENDOR_DIR)angular-route.js $(VENDOR_DIR)angular-resource.js $(VENDOR_DIR)material.css $(VENDOR_DIR)material.js $(BUILD_DIR)main-compiled.js
 
 $(VENDOR_DIR)traceur-runtime.js: $(NODE_DIR)traceur/bin/traceur-runtime.js
 	install -m644 $< $@
@@ -18,6 +18,12 @@ $(VENDOR_DIR)angular-route.js: $(NODE_DIR)angular-route/angular-route.js
 	install -m644 $< $@
 
 $(VENDOR_DIR)angular-resource.js: $(NODE_DIR)angular-resource/angular-resource.js
+	install -m644 $< $@
+
+$(VENDOR_DIR)material.js: $(NODE_DIR)material-design-lite/material.js
+	install -m644 $< $@
+
+$(VENDOR_DIR)material.css: $(NODE_DIR)material-design-lite/material.css
 	install -m644 $< $@
 
 $(BUILD_DIR)main-compiled.js: $(SOURCES)
