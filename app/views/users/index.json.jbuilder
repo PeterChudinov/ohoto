@@ -1,10 +1,10 @@
 json.array!(@users) do |u|
-  json.id = u.id
-  json.name = u.name
-  json.instagram_url = u.instagram_url
-  json.instagram_name = u.instagram_name
-  json.image_url = u.image_url
-  json.items_count = u.items_count
+  json.id u.id
+  json.name u.name
+  json.instagram_url u.instagram_url
+  json.instagram_name u.instagram_name
+  json.image_url u.image_url
+  json.items_count u.items_count
 end
 
 
