@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
+
   get 'callbacks/instagram'
   
   get 'auth-status' => 'home#auth_status', defaults: { format: 'json' }
 
   get 'home/index'
   get 'photos/index'
+  get 'users/index'
   
   root to: "home#index"
   
