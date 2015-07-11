@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     request.env['omniauth.origin'] || after_sign_in_path_for(resource)
   end
   
+  def after_sign_out_path_for(resource)
+    request.env['omniauth.origin'] || after_sign_out_path_for(resource)
+  end
+  
   private
   def client
     Instagram.client(access_token: current_user.access_token)
