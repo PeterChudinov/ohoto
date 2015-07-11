@@ -1,3 +1,3 @@
 class Like < ActiveRecord::Base
-  belong_to User
+  belongs_to User
 end
