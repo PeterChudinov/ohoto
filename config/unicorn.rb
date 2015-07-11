@@ -14,7 +14,7 @@ timeout 120
 # Listen on a Unix data socket
 listen "/tmp/ohoto.sock", backlog: 2048
 
-pid "#{path}/tmp/pids/unicorn.pid"
+pid "#{path}/shared/tmp/pids/unicorn.pid"
 
 if environment != 'development'
   stderr_path "#{path}/shared/log/unicorn.stderr.log"
