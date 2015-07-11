@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 gem 'pg'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +44,14 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rbenv', '~> 2.0.3'
+  gem 'capistrano-bundler', '~> 1.1.4'
+  gem 'airbrussh', require: false
+end
+
 
 gem 'devise'
 gem 'omniauth'
@@ -52,3 +60,5 @@ gem 'activerecord-session_store'
 gem 'instagram'
 
 gem 'figaro'
+
+gem 'whenever', require: false
