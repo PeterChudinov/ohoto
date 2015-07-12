@@ -1,7 +1,10 @@
 json.id item.id
 json.title item.title
 json.image_url item.image_url
+json.shop_id item.shop_id
 json.shop_name item.shop.name
+json.user_id item.user_id
+json.user_name item.user.name
 json.likes_count item.likes_count
 
 =begin
