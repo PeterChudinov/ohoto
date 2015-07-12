@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
       item.title = like.caption.try(:text)
       item.image_url = like.images.standard_resolution.url
       item.user_id = self.id
+      item.link = like.link
       item.instagram_id = like.id
       item.comments_count = like.comments['count']
       item.likes_count = like.likes['count']

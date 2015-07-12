@@ -1,5 +1,6 @@
 json.id item.id
 json.title item.title
+json.link item.link
 json.image_url item.image_url
 json.shop_id item.shop_id
 json.shop_name item.shop.name
