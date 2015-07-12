@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   
   def get_likes
-    Instagram.user_liked_media(access_token: self.access_token).each do |like|
+    Instagram.user_liked_media(access_token: self.access_token, count: 100).each do |like|
       item = Item.find_or_create_by(instagram_id: like.id)
       item.title = like.caption.try(:text)
       item.image_url = like.images.standard_resolution.url
