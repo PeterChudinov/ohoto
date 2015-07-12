@@ -5,7 +5,7 @@ json.instagram_url @user.instagram_url
 json.instagram_name @user.instagram_name
 json.image_url @user.image_url
 
-json.items @user.items, partial: 'items/show', as: :item
+json.items @user.items.visible, partial: 'items/show', as: :item
 
 
 =begin
