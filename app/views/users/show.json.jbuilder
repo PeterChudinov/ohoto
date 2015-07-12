@@ -1,10 +1,8 @@
-json.array!(@user) do |u|
-  json.name u.name
-  json.instagram_url u.instagram_url
-  json.instagram_name u.instagram_name
-  json.image_url u.image_url
-  json.items []
-end
+json.name @user.name
+json.instagram_url @user.instagram_url
+json.instagram_name @user.instagram_name
+json.image_url @user.image_url
+json.items []
 
 
 =begin

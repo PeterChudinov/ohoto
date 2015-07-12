@@ -1,26 +1,17 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  get 'items/index'
 
   mount Sidekiq::Web => '/sidekiq'
-  get 'shops/index' => 'shops#index'
-
-  get 'user/index'
-
-  get 'users/index'
+  
+  resources :users, only: %i(index show), defaults: { format: 'json' }
+  resources :items, only: %i(index show), defaults: { format: 'json' }
+  resources :shops, only: %i(index show), defaults: { format: 'json' }
 
   get 'callbacks/instagram'
   
   get 'auth-status' => 'home#auth_status', defaults: { format: 'json' }
-
   get 'home/index'
-  get 'photos/index'
-  get 'users/index'
-
-
-  resources :shops
-  get 'shops/:id/show' => 'shops#index'
   
   root to: "home#index"
   
