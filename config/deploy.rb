@@ -45,7 +45,7 @@ set :ssh_options, { forward_agent: true, auth_methods: %w(publickey) }
 # set :keep_releases, 5
 
 set :unicorn_config_path, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
-set :unicorn_restart_sleep_time, 10
+# set :unicorn_restart_sleep_time, 10
 set :unicorn_pid, "#{fetch(:deploy_to)}/current/tmp/pids/unicorn.pid"
 
 
