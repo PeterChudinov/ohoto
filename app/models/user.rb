@@ -26,6 +26,15 @@ class User < ActiveRecord::Base
     end
   end
   
+  def get_info
+    info = Instagram.client(access_token: self.access_token).user
+    self.instagram_name = info.username
+    self.name = info.full_name
+    self.image_url = info.profile_picture 
+    self.bio = info.bio
+    self.save
+  end
+  
   def self.from_omniauth(auth)  
     user = where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
       u.provider = auth.provider
