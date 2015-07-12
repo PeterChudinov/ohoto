@@ -1,8 +1,11 @@
 json.array!(@items) do |u|
-  json.id items.id
-  json.title items.title
-  json.image_url items.image_url
-  json.likes_count items.likes_count
+  json.id u.id
+  json.title u.title
+  json.image_url u.image_url
+  json.likes_count u.likes_count
+  json.comments_count u.comments_count
+  json.shop_whatsapp u.shop_whatsapp
+  json.shop_name u.shop_name
 end
 
 =begin
