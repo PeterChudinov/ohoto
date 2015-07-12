@@ -1,6 +1,7 @@
 json.array!(@shops) do |u|
   json.id u.id
   json.name u.name
+  json.bio u.bio
   json.instagram_url u.instagram_url
   json.instagram_name u.instagram_name
   json.image_url u.image_url

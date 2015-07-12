@@ -1,5 +1,6 @@
 json.id @user.id
 json.name @user.name
+json.bio @user.bio
 json.instagram_url @user.instagram_url
 json.instagram_name @user.instagram_name
 json.image_url @user.image_url
