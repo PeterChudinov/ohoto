@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
       item.likes_count = like.likes['count']
       item.shop = Shop.where(instagram_id: like.user.id).first_or_create do |shop|
         shop.image_url = like.user.profile_picture
-        shop.name = like.user.full_name
+        shop.name = like.user.full_name || like.user.username 
         shop.instagram_name = like.user.username
       end
       item.save
