@@ -4,11 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || super
   end
   
   def after_sign_out_path_for(resource)
-    request.env['omniauth.origin'] || after_sign_out_path_for(resource)
+    sign_out_url = destroy_user_session_path
+    if request.referer == sign_out_url
+      super
+    else
+      request.env['omniauth.origin'] || super
+    end
   end
   
   private
