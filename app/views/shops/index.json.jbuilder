@@ -5,7 +5,7 @@ json.array!(@shops) do |u|
   json.instagram_url u.instagram_url
   json.instagram_name u.instagram_name
   json.image_url u.image_url
-  json.items_count u.items_count
+  json.items_count u.items.visible.count
 end
 
 =begin

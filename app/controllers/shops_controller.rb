@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.order(items_count: :desc)
+    @shops = Shop.order(items_count: :desc).includes(:items)
   end
 
   def show
