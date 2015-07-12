@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   mount Sidekiq::Web => '/sidekiq'
 
-  get 'users/sign_out' => 'devise/sessions#destroy'
-  
   resources :users, only: %i(index show), defaults: { format: 'json' }
   resources :items, only: %i(index show), defaults: { format: 'json' }
   resources :shops, only: %i(index show), defaults: { format: 'json' }
@@ -17,7 +15,9 @@ Rails.application.routes.draw do
   
   root to: "home#index"
   
-  devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "callbacks" } do
+    get 'logout' => 'devise/sessions#destroy'
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
