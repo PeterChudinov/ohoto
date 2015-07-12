@@ -9,7 +9,8 @@ ohotoServices.factory('Item', ['$resource', ($resource) => {
     query: {
       method: 'GET',
       params: {
-        itemId: ''
+        itemId: '',
+        tag: ''
       },
       isArray: true
     }

@@ -1,7 +1,8 @@
 var ohotoControllers = angular.module('ohotoControllers', []);
 
-ohotoControllers.controller('ItemListCtrl', ['$scope', 'Item', ($scope, Item) => {
-  $scope.items = Item.query();
+ohotoControllers.controller('ItemListCtrl', ['$scope', '$routeParams', 'Item', ($scope, $routeParams, Item) => {
+  console.log($routeParams.tag);
+  $scope.items = Item.query({ tag: $routeParams.tag });
 }]);
 
 ohotoControllers.controller('ItemDetailCtrl', ['$scope', '$routeParams', 'Item', ($scope, $routeParams, Item) => {

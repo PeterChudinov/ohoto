@@ -14,6 +14,10 @@ ohotoApp
             templateUrl: 'partials/item-list.html',
             controller: 'ItemListCtrl'
           })
+          .when('/items/:tag', {
+            templateUrl: 'partials/item-list.html',
+            controller: 'ItemListCtrl'
+          })
           .when('/item/:itemId', {
             templateUrl: 'partials/item.html',
             controller: 'ItemDetailCtrl'
