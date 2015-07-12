@@ -7,6 +7,16 @@ class User < ActiveRecord::Base
 
   has_many :likes
   
+  def get_likes
+    Instagram.user_liked_media(access_token: self.access_token).each do |insta_like|
+      Like.create(
+        instagram_id: insta_like.id,
+        link: insta_like.link,
+        user_id: self.id
+      )
+    end
+  end
+  
   def self.from_omniauth(auth)  
     user = where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
       u.provider = auth.provider
@@ -19,5 +29,4 @@ class User < ActiveRecord::Base
     user.update!(access_token: auth.credentials.token )
     user
   end
-  
 end
