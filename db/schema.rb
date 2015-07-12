@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712072208) do
+ActiveRecord::Schema.define(version: 20150712085441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150712072208) do
     t.integer  "comments_count"
     t.string   "instagram_id"
     t.integer  "user_id"
+    t.string   "tags",                        array: true
+    t.boolean  "visible"
   end
 
   add_index "items", ["shop_id"], name: "index_items_on_shop_id", using: :btree
