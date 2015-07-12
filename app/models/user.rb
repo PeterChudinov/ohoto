@@ -8,11 +8,17 @@ class User < ActiveRecord::Base
   has_many :likes
   
   def get_likes
-    Instagram.user_liked_media(access_token: self.access_token).each do |insta_like|
-      Like.create(
-        instagram_id: insta_like.id,
-        link: insta_like.link,
-        user_id: self.id
+    Instagram.user_liked_media(access_token: self.access_token).each do |like|
+      Item.create(
+        title: like.caption.text,
+        image_url: like.link,
+        # user_id: self.id,
+        comments_count: like.comments['count'],
+        likes_count: like.likes['count'],
+        shop: Shop.where(instagram_name: like.user.username).first_or_create do |shop|
+          shop.image_url = like.user.profile_picture
+          shop.name = like.user.full_name
+        end
       )
     end
   end

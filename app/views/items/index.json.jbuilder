@@ -4,8 +4,8 @@ json.array!(@items) do |u|
   json.image_url u.image_url
   json.likes_count u.likes_count
   json.comments_count u.comments_count
-  json.shop_whatsapp u.shop_whatsapp
-  json.shop_name u.shop_name
+  json.shop_whatsapp u.shop.whatsapp
+  json.shop_name u.shop.name
 end
 
 =begin
