@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:instagram]
 
   has_many :likes
+  has_many :items
   
   def get_likes
     Instagram.user_liked_media(access_token: self.access_token).each do |like|
