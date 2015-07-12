@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.visible
     if params[:tag]
       @items = @items.where("tags @> ?", "{#{params[:tag]}}")
     end
