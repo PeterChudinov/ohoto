@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'items/index'
 
   mount Sidekiq::Web => '/sidekiq'
-  get 'shops/index'
+  get 'shops/index' => 'shops#index'
 
   get 'user/index'
 
@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'photos/index'
   get 'users/index'
+
+
+  resources :shops
+  get 'shops/:id/show' => 'shops#index'
   
   root to: "home#index"
   
