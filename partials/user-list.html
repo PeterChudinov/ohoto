@@ -1,0 +1,8 @@
+<div>
+  <div ng-repeat="user in users" ng-go-to="/user/{{shop.id}}">
+    <div class="mdl-grid">
+      <img ng-src="{{user.image_url}}">
+      <a href="https://instagram.com/{{user.instagram_name}}" target="_blank">{{user.instagram_name}}</a>
+    </div>
+  </div>
+</div>

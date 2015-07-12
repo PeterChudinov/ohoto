@@ -1,17 +1,15 @@
 <div class="mdl-grid" style="display:block">
   <div style="float:left; margin-right: 10px">
-    <div class="mdl-card mdl-shadow--2dp" style="background: url({{item.image}}) center / cover; width: 340px; height: 340px"></div>
+    <div class="mdl-card mdl-shadow--2dp" style="background: url({{item.image_url}}) center / cover; width: 340px; height: 340px"></div>
   </div>
   <div>
-    <p>Владелец: {{item.seller_name}}<br>
-    Лайков: {{item.like_count}}<br>
-    Комментов: {{item.comments_count}}<br>
-    Комментарий: {{item.title}}</p>
+    <p>Владелец: {{item.shop_name}}<br>
+      Лайков: {{item.like_count}}<br>
+      Комментов: {{item.comments_count}}<br>
+      Комментарий: {{item.title}}</p>
   </div>
   <div style="clear:left; height: 80px"></div>
-  <a href="#/items">
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored item-page-back-button">
-      <i class="material-icons">arrow_back</i>
-    </button>
-  </a>
+  <button ng-back-button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored item-page-back-button">
+    <i class="material-icons">arrow_back</i>
+  </button>
 </div>
