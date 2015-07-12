@@ -8,12 +8,8 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_out_path_for(resource)
-    sign_out_url = destroy_user_session_path
-    if request.referer == sign_out_url
-      super
-    else
-      request.env['omniauth.origin'] || super
-    end
+    'http://oho.to'
+    # request.env['omniauth.origin'] || super
   end
   
   private
