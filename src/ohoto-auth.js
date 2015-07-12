@@ -5,6 +5,7 @@ const setAuth = (ok) => {
     var displayName = ok.name || ok.instagram_name;
     document.getElementById('menu-logout').textContent = displayName;
     document.getElementById('header-logout').textContent = displayName;
+    document.getElementById('userpic').style.backgroundImage = `url(${ok.image_url})`;
     document.documentElement.setAttribute('data-logged', 'true');
   } else {
     document.documentElement.setAttribute('data-logged', 'false');
