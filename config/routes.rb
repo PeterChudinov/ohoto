@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'items/index'
+
   mount Sidekiq::Web => '/sidekiq'
   get 'shops/index'
 

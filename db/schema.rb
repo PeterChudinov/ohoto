@@ -11,17 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712001844) do
+ActiveRecord::Schema.define(version: 20150712003156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "items", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image_url"
+    t.string   "shop_name"
+    t.integer  "likes_count"
+    t.integer  "shop_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "items", ["shop_id"], name: "index_items_on_shop_id", using: :btree
+
   create_table "likes", force: :cascade do |t|
-    t.integer  "instagram_id", limit: 8
+    t.string   "instagram_id"
     t.string   "link"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -70,4 +82,5 @@ ActiveRecord::Schema.define(version: 20150712001844) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "items", "shops"
 end
