@@ -10,11 +10,11 @@ class CheckerCommentsJob < ActiveJob::Base
       item.visible = false
     else
       tags = text.scan(/#(\S+)/)
-      if tags
+      if tags.empty?
+        item.visible = false
+      else
         item.tags = tags.flatten
         item.visible = true
-      else
-        item.visible = false
       end
     end
     item.save
