@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :items
   
+  after_commit :add_info
+  
   def get_likes
     Instagram.user_liked_media(access_token: self.access_token).each do |like|
       item = Item.find_or_create_by(instagram_id: like.id)
@@ -22,6 +24,7 @@ class User < ActiveRecord::Base
         shop.name = like.user.full_name || like.user.username 
         shop.instagram_name = like.user.username
       end
+      ShopInfoJob.perform_later(item.shop.id)
       item.save
     end
   end
@@ -33,6 +36,10 @@ class User < ActiveRecord::Base
     self.image_url = info.profile_picture 
     self.bio = info.bio
     self.save
+  end
+  
+  def add_info
+    UserInfoJob.perform_later(self.id)
   end
   
   def self.from_omniauth(auth)  
