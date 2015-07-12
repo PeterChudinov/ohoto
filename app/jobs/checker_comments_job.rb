@@ -12,8 +12,9 @@ class CheckerCommentsJob < ActiveJob::Base
       tags = text.scan(/#(\S+)/)
       if tags
         item.tags = tags.flatten
-      else
         item.visible = true
+      else
+        item.visible = false
       end
     end
     item.save
