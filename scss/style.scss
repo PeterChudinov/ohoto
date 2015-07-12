@@ -56,6 +56,12 @@
   cursor: pointer;
 }
 
+html:not([data-logged]) {
+  .mdl-navigation__link {
+    display: none;
+  }
+}
+
 html {
   &[data-logged="false"] {
     [data-logged="false"] {

@@ -1,7 +1,14 @@
 var xhr = new XMLHttpRequest;
 
 const setAuth = (ok) => {
-  document.documentElement.setAttribute('data-logged', String(ok));
+  if (ok) {
+    var displayName = ok.name || ok.instagram_name;
+    document.getElementById('menu-logout').textContent = displayName;
+    document.getElementById('header-logout').textContent = displayName;
+    document.documentElement.setAttribute('data-logged', 'true');
+  } else {
+    document.documentElement.setAttribute('data-logged', 'false');
+  }
 };
 
 xhr.withCredentials = true;
@@ -11,7 +18,11 @@ xhr.addEventListener('readystatechange', () => {
   if (xhr.readyState === xhr.DONE) {
     try {
       var json = JSON.parse(xhr.responseText);
-      setAuth(json.auth === true);
+      if (json.auth === true) {
+        setAuth(json);
+      } else {
+        setAuth(false);
+      }
     } catch (e) {
       setAuth(false);
     }
