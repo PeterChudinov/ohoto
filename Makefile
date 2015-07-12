@@ -6,7 +6,7 @@ SRC_DIR=src/
 BUILD_DIR=build/
 SOURCES:=$(wildcard $(SRC_DIR)*.js)
 
-all: $(VENDOR_DIR)traceur-runtime.js $(VENDOR_DIR)angular.js $(VENDOR_DIR)angular-route.js $(VENDOR_DIR)angular-resource.js $(VENDOR_DIR)material.css $(VENDOR_DIR)material.js $(BUILD_DIR)main-compiled.js $(BUILD_DIR)style.css
+all: $(VENDOR_DIR)traceur-runtime.js $(VENDOR_DIR)angular.js $(VENDOR_DIR)angular-route.js $(VENDOR_DIR)angular-resource.js $(VENDOR_DIR)angular-animate.js $(VENDOR_DIR)material.css $(VENDOR_DIR)material.js $(BUILD_DIR)main-compiled.js $(BUILD_DIR)style.css
 
 $(BUILD_DIR)style.css: scss/style.scss
 	$(NODE_BIN)node-sass $< $@
@@ -21,6 +21,9 @@ $(VENDOR_DIR)angular-route.js: $(NODE_DIR)angular-route/angular-route.js
 	install -m644 $< $@
 
 $(VENDOR_DIR)angular-resource.js: $(NODE_DIR)angular-resource/angular-resource.js
+	install -m644 $< $@
+
+$(VENDOR_DIR)angular-animate.js: $(NODE_DIR)angular-animate/angular-animate.js
 	install -m644 $< $@
 
 $(VENDOR_DIR)material.js: $(NODE_DIR)material-design-lite/material.js

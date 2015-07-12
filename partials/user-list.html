@@ -1,8 +1,15 @@
-<div>
-  <div ng-repeat="user in users" ng-go-to="/user/{{shop.id}}">
+<div class="user-list">
+  <div ng-repeat="user in users" ng-go-to="/user/{{user.id}}">
     <div class="mdl-grid">
       <img ng-src="{{user.image_url}}">
-      <a href="https://instagram.com/{{user.instagram_name}}" target="_blank">{{user.instagram_name}}</a>
+      <ul class="description">
+        <li>
+          <a href="#/user/{{user.id}}">{{user.instagram_name}}</a>
+        </li>
+        <li>
+          <span>Товаров: {{user.items_count}}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

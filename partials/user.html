@@ -1,5 +1,31 @@
-<div class="mdl-grid">
-  <p>{{user.id}}</p>
+<div>
+  <div class="user-profile">
+    <div class="mdl-grid">
+      <img ng-src="{{user.image_url}}">
+      <ul class="description">
+        <li>
+          <a href="https://instagram.com/{{user.instagram_name}}">{{user.instagram_name}}</a>
+        </li>
+        <li>
+          <span>Товаров: {{user.items.length}}</span>
+        </li>
+        <li>
+          <span>О кураторе: {{user.bio}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="items-container item-list">
+    <div ng-repeat="item in user.items" ng-go-to="/item/{{item.id}}" class="item-wrapper">
+      <div class="mdl-card mdl-shadow--2dp item-card-image" style="background: url({{item.image_url}}) center / cover">
+        <div class="mdl-card__title mdl-card--expand">
+          <span class="item-card-expand__likes">❤&nbsp;{{item.likes_count}}</span>
+          <span class="item-card-expand__shopname">{{item.user}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <button ng-back-button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored item-page-back-button">
     <i class="material-icons">arrow_back</i>

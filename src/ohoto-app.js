@@ -1,7 +1,8 @@
 var ohotoApp = angular.module('ohotoApp', [
   'ngRoute',
   'ohotoControllers',
-  'ohotoServices'
+  'ohotoServices',
+  'ohotoAnimations'
 ]);
 
 ohotoApp

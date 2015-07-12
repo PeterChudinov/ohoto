@@ -1,8 +1,15 @@
-<div>
+<div class="shop-list">
   <div ng-repeat="shop in shops" ng-go-to="/shop/{{shop.id}}">
     <div class="mdl-grid">
       <img ng-src="{{shop.image_url}}">
-      <a href="https://instagram.com/{{shop.instagram_name}}" target="_blank">{{shop.instagram_name}}</a>
+      <ul class="description">
+        <li>
+          <a href="#/shop/{{shop.id}}">{{shop.instagram_name}}</a>
+        </li>
+        <li>
+          <span>Товаров: {{shop.items_count}}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

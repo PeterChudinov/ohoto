@@ -33,12 +33,15 @@
           <a class="mdl-navigation__link" data-logged="false" href="http://api.oho.to/users/auth/instagram" style="display:none">Войти</a>
         </nav>
       </div>
-      <main class="mdl-layout__content" ng-view>
-      </main>
+      <div class="view-container">
+        <main class="mdl-layout__content view-frame" ng-view>
+        </main>
+      </div>
     </div>
     <script src="vendor/angular.js"></script>
     <script src="vendor/angular-route.js"></script>
     <script src="vendor/angular-resource.js"></script>
+    <script src="vendor/angular-animate.js"></script>
     <script src="vendor/traceur-runtime.js"></script>
     <script src="vendor/material.js"></script>
     <script src="build/main-compiled.js"></script>

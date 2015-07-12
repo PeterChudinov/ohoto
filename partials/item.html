@@ -1,11 +1,14 @@
 <div class="mdl-grid" style="display:block">
   <div style="float:left; margin-right: 10px">
-    <div class="mdl-card mdl-shadow--2dp" style="background: url({{item.image_url}}) center / cover; width: 340px; height: 340px"></div>
+    <a href="{{item.instagram_link}}" target="_blank">
+      <div class="mdl-card mdl-shadow--2dp" style="background: url({{item.image_url}}) center / cover; width: 340px; height: 340px"></div>
+    </a>
   </div>
   <div>
-    <p>Владелец: {{item.shop_name}}<br>
-      Лайков: {{item.like_count}}<br>
-      Комментов: {{item.comments_count}}<br>
+    <p>Магазин: <a ng-go-to="/shop/{{item.shop_id}}">{{item.shop_name}}</a><br>
+      Куратор: <a ng-go-to="/user/{{item.user_id}}">{{item.user_name}}</a><br>
+      Лайков: {{item.likes_count}}<br>
+      <!-- Комментов: {{item.comments_count}}<br> -->
       Комментарий: {{item.title}}</p>
   </div>
   <div style="clear:left; height: 80px"></div>
