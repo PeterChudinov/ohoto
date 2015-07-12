@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     Instagram.user_liked_media(access_token: self.access_token).each do |like|
       item = Item.find_or_create_by(instagram_id: like.id)
       item.title = like.caption.try(:text)
-      item.image_url = like.link
+      item.image_url = like.images.standard_resolution.url
       item.user_id = self.id
       item.instagram_id = like.id
       item.comments_count = like.comments['count']
