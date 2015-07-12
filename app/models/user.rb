@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :items
   
-  after_commit :add_info
   
   def get_likes
     Instagram.user_liked_media(access_token: self.access_token).each do |like|
