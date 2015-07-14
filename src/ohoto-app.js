@@ -7,43 +7,60 @@ var ohotoApp = angular.module('ohotoApp', [
 
 ohotoApp
   .config(
-    [ '$routeProvider',
-      ($routeProvider) => {
-        $routeProvider
-          .when('/items', {
-            templateUrl: 'partials/item-list.html',
-            controller: 'ItemListCtrl'
-          })
-          .when('/items/:tag', {
-            templateUrl: 'partials/item-list.html',
-            controller: 'ItemListCtrl'
-          })
-          .when('/item/:itemId', {
-            templateUrl: 'partials/item.html',
-            controller: 'ItemDetailCtrl'
-          })
-          .when('/shops', {
-            templateUrl: 'partials/shop-list.html',
-            controller: 'ShopListCtrl'
-          })
-          .when('/shop/:shopId', {
-            templateUrl: 'partials/shop.html',
-            controller: 'ShopDetailCtrl'
-          })
-          .when('/users', {
-            templateUrl: 'partials/user-list.html',
-            controller: 'UserListCtrl'
-          })
-          .when('/user/:userId', {
-            templateUrl: 'partials/user.html',
-            controller: 'UserDetailCtrl'
-          })
-          .otherwise({
-            redirectTo: '/items'
-          });
-      }
+    ['$routeProvider',
+     ($routeProvider) => {
+       $routeProvider
+         .when('/items', {
+           templateUrl: 'partials/item-list.html',
+           controller: 'ItemListCtrl'
+         })
+         .when('/items/:tag', {
+           templateUrl: 'partials/item-list.html',
+           controller: 'ItemListCtrl'
+         })
+         .when('/item/:itemId', {
+           templateUrl: 'partials/item.html',
+           controller: 'ItemDetailCtrl'
+         })
+         .when('/shops', {
+           templateUrl: 'partials/shop-list.html',
+           controller: 'ShopListCtrl'
+         })
+         .when('/shop/:shopId', {
+           templateUrl: 'partials/shop.html',
+           controller: 'ShopDetailCtrl'
+         })
+         .when('/users', {
+           templateUrl: 'partials/user-list.html',
+           controller: 'UserListCtrl'
+         })
+         .when('/user/:userId', {
+           templateUrl: 'partials/user.html',
+           controller: 'UserDetailCtrl'
+         })
+         .otherwise({
+           redirectTo: '/items'
+         });
+     }
     ]
   )
+
+  .config([
+    '$locationProvider',
+    ($locationProvider) => {
+      if ('pushState' in window.history) {
+        var hash = window.location.hash;
+        if (hash.length > 1) {
+          window.location.pathname = hash.slice(1);
+        }
+        $locationProvider.html5Mode(true);
+      } else {
+        var path = window.location.pathname;
+        if (path !== '/') {
+          window.location.pathname = `/#${path}`;
+        }
+      }
+    }])
 
   .directive('ngBackButton', ['$window', ($window) => {
     return {

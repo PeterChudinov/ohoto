@@ -1,6 +1,4 @@
-const prefix = window.location.hostname === 'localhost' ?
-               '//private-d5015-ohoto.apiary-mock.com' :
-               '//api.oho.to';
+const prefix = '//api.oho.to';
 
 var ohotoServices = angular.module('ohotoServices', ['ngResource']);
 
