@@ -17,4 +17,12 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
+every '0, 30 * * * *' do
+  rake 'likes:get'
+end
+
+every '5, 35 * * * *' do
+  rake 'comments:check'
+end
+
 # Learn more: http://github.com/javan/whenever
