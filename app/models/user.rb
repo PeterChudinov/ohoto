@@ -11,23 +11,22 @@ class User < ActiveRecord::Base
   
   def get_likes
     Instagram.user_liked_media(access_token: self.access_token).each do |like|
-      if like.type = 'image'
-        item = Item.find_or_create_by(instagram_id: like.id)
-        item.title = like.caption.try(:text)
-        item.image_url = like.images.standard_resolution.url
-        item.user_id = self.id
-        item.link = like.link
-        item.instagram_id = like.id
-        item.comments_count = like.comments['count']
-        item.likes_count = like.likes['count']
-        item.shop = Shop.where(instagram_id: like.user.id).first_or_create do |shop|
-          shop.image_url = like.user.profile_picture
-          shop.name = like.user.full_name || like.user.username
-          shop.instagram_name = like.user.username
-        end
-        ShopInfoJob.perform_later(item.shop.id)
-        item.save
+      next if like.type != 'image'
+      item = Item.find_or_create_by(instagram_id: like.id)
+      item.title = like.caption.try(:text)
+      item.image_url = like.images.standard_resolution.url
+      item.user_id = self.id
+      item.link = like.link
+      item.instagram_id = like.id
+      item.comments_count = like.comments['count']
+      item.likes_count = like.likes['count']
+      item.shop = Shop.where(instagram_id: like.user.id).first_or_create do |shop|
+        shop.image_url = like.user.profile_picture
+        shop.name = like.user.full_name || like.user.username
+        shop.instagram_name = like.user.username
       end
+      ShopInfoJob.perform_later(item.shop.id)
+      item.save
     end
   end
   
