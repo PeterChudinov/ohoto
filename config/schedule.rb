@@ -17,11 +17,11 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every '0, 30 * * * *' do
+every '0,30 * * * *' do
   rake 'likes:get'
 end
 
-every '5, 35 * * * *' do
+every '5,35 * * * *' do
   rake 'comments:check'
 end
 
